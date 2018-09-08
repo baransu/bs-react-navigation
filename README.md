@@ -14,4 +14,4 @@ This is **work in progress**.
 
 ## License
 
-MIT (c) 2018 Callstack
+MIT (c) 2018 Tomasz Cichociński
