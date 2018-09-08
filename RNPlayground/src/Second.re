@@ -6,9 +6,8 @@ let make = (~navigation, _) => {
   ...component,
   render: _ =>
     <View>
-      <Text> {ReasonReact.string("second")} </Text>
       <Button
-        title="Go to second"
+        title="Go back"
         onPress={_ => Navigation.goBack(navigation, ())}
       />
     </View>,
