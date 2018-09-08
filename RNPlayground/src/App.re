@@ -4,7 +4,7 @@ open BsReactNavigation;
 module Config = {
   open StackNavigator;
   type screenProps;
-  type params = {. "a": int};
+  type params;
 
   let routes: routes(screenProps, params) = [
     (
@@ -37,10 +37,7 @@ let styles =
 let component = ReasonReact.statelessComponent("RNPlayground");
 let make = _children => {
   ...component,
-  render: _self => <Navigation screenProps=0 />,
-  /* <SafeAreaView style=styles##app>
-       <Text> {ReasonReact.string("hello world everyomne!")} </Text>
-     </SafeAreaView> */
+  render: _self => <Navigation screenProps=None />,
 };
 
 let reactClass =
