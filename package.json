@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "bs-platform": "^4.0.5",
+    "bs-react-native": "^0.9.0",
     "react-native": "^0.56.0",
     "reason-react": "^0.5.3"
   },
