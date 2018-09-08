@@ -1,0 +1,11 @@
+{
+  "name": "react-navigation",
+  "refmt": 3,
+  "reason": { "react-jsx": 2 },
+  "bs-dependencies": ["bs-react-native", "reason-react", "bs-react-navigation"],
+  "sources": [
+    {
+      "dir": "src"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "bs-react-navigation",
+  "refmt": 3,
+  "reason": { "react-jsx": 2 },
+  "bsc-flags": ["-bs-super-errors"],
+  "bs-dependencies": ["bs-react-native", "reason-react"],
+  "namespace": true,
+  "sources": [
+    {
+      "dir": "src"
+    }
+  ]
+}
