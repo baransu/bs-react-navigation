@@ -1,24 +1,29 @@
 {
   "name": "bs-react-navigation",
   "version": "0.1.0",
-  "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "packager:start": "node node_modules/react-native/local-cli/cli.js start --reset-cache --root RNPlayground",
-    "watch": "bsb -make-world -w",
     "build": "bsb -make-world",
-    "clean": "bsb -clean-world"
+    "start": "bsb -make-world -w",
+    "clean": "bsb -clean-world -make-world"
   },
+  "keywords": [
+    "reason",
+    "reasonml",
+    "bucklescript",
+    "react-native",
+    "react-navigation",
+    "bs-react-native"
+  ],
   "devDependencies": {
-    "bs-platform": "^4.0.5",
-    "bs-react-native": "^0.9.0",
-    "react-native": "^0.56.1",
-    "react-navigation": "^2.13.0",
-    "reason-react": "^0.5.3"
+    "bs-platform": "^4.0.0",
+    "reason-react": "^0.4.2",
+    "bs-react-native": "^0.9.0"
   },
   "peerDependencies": {
     "bs-react-native": "^0.9.0",
-    "react-navigation": "^2.13.0",
-    "reason-react": "^0.5.3"
+    "react-native": "^0.55.0",
+    "reason-react": "^0.4.2",
+    "react-navigation": "^2.13.0"
   }
 }

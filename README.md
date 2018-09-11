@@ -8,24 +8,15 @@ Many thanks to [@saschatimme](https://github.com/saschatimme) for started work o
 
 This is **work in progress**.
 
-## Getting started
-
-To run RNPlayground
-In `RNPlayground` directory
+## Setup Development
 
 ```sh
-yarn watch
-# and
-react-native run-ios # or run-android
+git clone https://github.com/Baransu/bs-react-navigation.git
+cd bs-react-natvigation
+npm install
 ```
 
-In project root
-
-```sh
-yarn packager:start
-# and
-yarn watch
-```
+Then build with `npm start`.
 
 ## License
 
