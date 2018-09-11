@@ -2,7 +2,7 @@
 
 > Bucklescript bindings to react-navigation
 
-Many thanks to [@saschatimme](https://github.com/saschatimme) for started work on bindings to react-navigation in the first place.
+Many thanks to [@saschatimme](https://github.com/saschatimme) who started work on bindings to react-navigation in the first place.
 
 ### Disclaimer
 
