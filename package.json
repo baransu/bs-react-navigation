@@ -4,22 +4,21 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "bsb -make-world",
-    "clean": "bsb -clean-world",
+    "packager:start": "node node_modules/react-native/local-cli/cli.js start --reset-cache --root RNPlayground",
     "watch": "bsb -make-world -w",
-    "packager:start": "node node_modules/react-native/local-cli/cli.js start --reset-cache --root RNPlayground"
+    "build": "bsb -make-world",
+    "clean": "bsb -clean-world"
   },
   "devDependencies": {
     "bs-platform": "^4.0.5",
     "bs-react-native": "^0.9.0",
-    "react-native": "^0.56.0",
+    "react-native": "^0.56.1",
+    "react-navigation": "^2.13.0",
     "reason-react": "^0.5.3"
   },
   "peerDependencies": {
     "bs-react-native": "^0.9.0",
+    "react-navigation": "^2.13.0",
     "reason-react": "^0.5.3"
-  },
-  "dependencies": {
-    "react-navigation": "^2.13.0"
   }
 }

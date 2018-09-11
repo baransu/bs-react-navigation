@@ -10,7 +10,7 @@ module Config = {
     (
       "First",
       Route.route(
-        ~screen=(~navigation) => <First navigation />,
+        ~screen=(~navigation, ~screenProps as _) => <First navigation />,
         ~navigationOptions=navigationOptions(~title="First", ()),
         (),
       ),
@@ -18,13 +18,13 @@ module Config = {
     (
       "Second",
       Route.route(
-        ~screen=(~navigation) => <Second navigation />,
+        ~screen=(~navigation, ~screenProps as _) => <Second navigation />,
         ~navigationOptions=navigationOptions(~title="Second", ()),
         (),
       ),
     ),
   ];
-  let navigationConfig = None;
+  let navigatorConfig = None;
 };
 
 module Navigation = StackNavigator.Create(Config);
