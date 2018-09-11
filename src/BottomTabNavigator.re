@@ -12,7 +12,7 @@ type routes('screenProps, 'params) =
   list((string, route('screenProps, 'params)));
 
 [@bs.module "react-navigation"]
-external createStackNavigator:
+external createBottomTabNavigator:
   (
     Js.Dict.t(route('screenProps, 'params)),
     Js.Undefined.t(navigatorConfig)
@@ -29,7 +29,7 @@ module type Config = {
 
 module Create = (Config: Config) => {
   let reactClass =
-    createStackNavigator(
+    createBottomTabNavigator(
       Config.routes |> Js.Dict.fromList,
       Js.Undefined.fromOption(Config.navigatorConfig),
     );
