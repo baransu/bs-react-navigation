@@ -5,9 +5,18 @@
   "refmt": 3,
   "bs-dependencies": ["reason-react", "bs-react-native"],
   "namespace": true,
+  "package-specs": {
+    "module": "commonjs",
+    "in-source": true
+  },
+  "suffix": ".bs.js",
   "sources": [
     {
       "dir": "src"
+    },
+    {
+      "dir": "example",
+      "type": "dev"
     }
   ]
 }
