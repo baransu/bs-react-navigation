@@ -8,15 +8,18 @@ Many thanks to [@saschatimme](https://github.com/saschatimme) who started work o
 
 This is **work in progress**.
 
-## Setup Development
+## Developing
 
 ```sh
-git clone https://github.com/Baransu/bs-react-navigation.git
-cd bs-react-natvigation
-npm install
-```
+# Starts Metro (React Native Packager)
+yarn start-example
 
-Then build with `npm start`.
+# Runs the app on iOS/Android
+yarn run-ios
+
+# Watches for source build changes
+yarn start
+```
 
 ## License
 

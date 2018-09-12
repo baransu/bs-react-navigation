@@ -8,4 +8,4 @@ import { reactClass } from "./App.bs.js";
 import React from "react";
 import { AppRegistry } from "react-native";
 
-AppRegistry.registerComponent("RNTester", () => reactClass);
+AppRegistry.registerComponent("ReasonDemo", () => reactClass);
