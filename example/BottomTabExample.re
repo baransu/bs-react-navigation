@@ -1,7 +1,7 @@
 module Config = {
   open BottomTabNavigator;
   type screenProps;
-  type params;
+  type params = {. "input": string};
 
   let routes: routes(screenProps, params) = [
     (

@@ -5,7 +5,7 @@ external navigate_:
   {
     .
     "routeName": string,
-    "params": Js.Undefined.t(Js.t('params)),
+    "params": Js.Undefined.t('params),
     "action": Js.Undefined.t(t('params)),
   } =>
   t('params) =
@@ -14,7 +14,7 @@ external navigate_:
 let navigate =
     (
       ~routeName: string,
-      ~params: option(Js.t('params))=?,
+      ~params: option('params)=?,
       ~action: option(t('params))=?,
       (),
     )

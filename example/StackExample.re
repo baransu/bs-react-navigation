@@ -1,7 +1,7 @@
 module Config = {
   open StackNavigator;
   type screenProps;
-  type params;
+  type params = {. "input": string};
 
   let routes: routes(screenProps, params) = [
     (
