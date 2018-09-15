@@ -6,7 +6,7 @@ Many thanks to [@saschatimme](https://github.com/saschatimme) who started work o
 
 ### Disclaimer
 
-This is **work in progress**.
+⚠️⚠️⚠️ **It's only experiment. This library is not production ready. Work in progress** ⚠️⚠️⚠️
 
 ## Developing
 
