@@ -15,7 +15,7 @@ type t('screenProps, 'params, 'options) = {
 };
 
 type screen('screenProps, 'params) =
-  (~navigation: Navigation.t('params), ~screenProps: 'screenProps) =>
+  (~navigation: Navigation.t('params), ~params: 'params) =>
   ReasonReact.reactElement;
 
 let route =
@@ -28,11 +28,11 @@ let route =
   Js.Undefined.(
     t(
       ~screen=
-        props =>
-          screen(
-            ~navigation=props##navigation,
-            ~screenProps=props##screenProps,
-          ),
+        props => {
+          let navigation = props##navigation;
+          let state = Navigation.state(navigation);
+          screen(~navigation, ~params=state.params);
+        },
       ~path=fromOption(path),
       ~navigationOptions=fromOption(navigationOptions),
     )

@@ -1,7 +1,17 @@
-type navigatorConfig = {
+[@bs.deriving abstract]
+type navigatorConfigT('params) = {
   /* TODO: add rest of StackNavigatorConfig */
-  initialRouteName: option(string),
+  initialRouteName: Js.Undefined.t(string),
+  initialRouteParams: {. "params": 'params},
 };
+
+let navigatorConfig = (~initialRouteName=?, ~initialParams, ()) =>
+  Js.Undefined.(
+    navigatorConfigT(
+      ~initialRouteName=fromOption(initialRouteName),
+      ~initialRouteParams={"params": initialParams},
+    )
+  );
 
 let navigationOptions = StackNavigationOptions.toJs;
 
@@ -13,10 +23,7 @@ type routes('screenProps, 'params) =
 
 [@bs.module "react-navigation"]
 external createStackNavigator:
-  (
-    Js.Dict.t(route('screenProps, 'params)),
-    Js.Undefined.t(navigatorConfig)
-  ) =>
+  (Js.Dict.t(route('screenProps, 'params)), navigatorConfigT('params)) =>
   ReasonReact.reactClass =
   "createStackNavigator";
 
@@ -24,14 +31,14 @@ module type Config = {
   type screenProps;
   type params;
   let routes: routes(screenProps, params);
-  let navigatorConfig: option(navigatorConfig);
+  let navigatorConfig: navigatorConfigT(params);
 };
 
 module Create = (Config: Config) => {
   let reactClass =
     createStackNavigator(
       Config.routes |> Js.Dict.fromList,
-      Js.Undefined.fromOption(Config.navigatorConfig),
+      Config.navigatorConfig,
     );
 
   let make = (~screenProps, children) =>

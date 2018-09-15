@@ -1,27 +1,29 @@
 module Config = {
   open StackNavigator;
+
   type screenProps;
-  type params = {. "input": string};
+  type params = [ | `Noop | `Input(string)];
 
   let routes: routes(screenProps, params) = [
     (
-      "First",
+      Routes.toString(`First),
       Route.route(
-        ~screen=(~navigation, ~screenProps as _) => <First navigation />,
+        ~screen=(~navigation, ~params) => <First navigation params />,
         ~navigationOptions=navigationOptions(~title="First", ()),
         (),
       ),
     ),
     (
-      "Second",
+      Routes.toString(`Second),
       Route.route(
-        ~screen=(~navigation, ~screenProps as _) => <Second navigation />,
+        ~screen=(~navigation, ~params) => <Second navigation params />,
         ~navigationOptions=navigationOptions(~title="Second", ()),
         (),
       ),
     ),
   ];
-  let navigatorConfig = None;
+
+  let navigatorConfig = navigatorConfig(~initialParams=`Noop, ());
 };
 
 include StackNavigator.Create(Config);

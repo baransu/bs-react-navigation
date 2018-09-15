@@ -1,7 +1,15 @@
-type navigatorConfig = {
+[@bs.deriving abstract]
+type navigatorConfigT('params) = {
   /* TODO: add rest of BottomTabNavigatorConfig */
-  initialRouteName: option(string),
+  initialRouteName: Js.Undefined.t(string),
+  initialRouteParams: 'params,
 };
+
+let navigatorConfig = (~initialRouteName=?, ~initialRouteParams, ()) =>
+  navigatorConfigT(
+    ~initialRouteName=Js.Undefined.fromOption(initialRouteName),
+    ~initialRouteParams,
+  );
 
 let navigationOptions = BottomTabNavigationOptions.toJs;
 
@@ -13,10 +21,7 @@ type routes('screenProps, 'params) =
 
 [@bs.module "react-navigation"]
 external createBottomTabNavigator:
-  (
-    Js.Dict.t(route('screenProps, 'params)),
-    Js.Undefined.t(navigatorConfig)
-  ) =>
+  (Js.Dict.t(route('screenProps, 'params)), navigatorConfigT('params)) =>
   ReasonReact.reactClass =
   "createBottomTabNavigator";
 
@@ -24,14 +29,14 @@ module type Config = {
   type screenProps;
   type params;
   let routes: routes(screenProps, params);
-  let navigatorConfig: option(navigatorConfig);
+  let navigatorConfig: navigatorConfigT(params);
 };
 
 module Create = (Config: Config) => {
   let reactClass =
     createBottomTabNavigator(
       Config.routes |> Js.Dict.fromList,
-      Js.Undefined.fromOption(Config.navigatorConfig),
+      Config.navigatorConfig,
     );
 
   let make = (~screenProps, children) =>

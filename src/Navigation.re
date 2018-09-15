@@ -3,9 +3,8 @@ type stateJs('params) = {
   "key": string,
   "routeName": string,
   "path": Js.Undefined.t(string),
-  "params": Js.Undefined.t('params),
+  "params": {. "params": 'params},
   "index": Js.Undefined.t(int),
-  /*routes : Js.Undefined.t (array (stateJs {.}))*/
 };
 
 type t('params) = {. "state": stateJs('params)};
@@ -16,33 +15,28 @@ type state('params) = {
   params: 'params,
   path: option(string),
   index: option(int),
-  /*routes: option (array (state {.}))*/
 };
 
-let state = t => {
+let state = (t: t('params)) => {
   let js = t##state;
   let key = js##key;
   let routeName = js##routeName;
-  let params =
-    js##params
-    |> Js.Undefined.toOption
-    |> Belt.Option.getWithDefault(_, Js.Obj.empty());
+  let params = js##params##params;
 
   let path = Js.Undefined.toOption(js##path);
   let index = Js.Undefined.toOption(js##index);
-  /*let routes = Js.Undefined.to_opt js##routes |> NavUtils.option_map (Array.map fromJs);*/
+
   {key, routeName, params, path, index};
 };
 
 [@bs.send]
-external navigate_:
-  (t('params), string, Js.Undefined.t('params)) /* TODO action => */ => unit =
+external navigate_: (t('params), string, {. "params": 'params}) => unit =
   "navigate";
 
-let navigate = (t, ~routeName, ~params=? /* TODO ~action=? */, ()) =>
-  navigate_(t, routeName, Js.Undefined.fromOption(params));
+let navigate = (t, ~routeName, ~params, ()) =>
+  navigate_(t, routeName, {"params": params});
 
-external setParams: (t('params), 'params) => unit = "";
+/* external setParams: (t('params), 'params) => unit = ""; */
 
 [@bs.send]
 external goBack_: (t('params), Js.Null_undefined.t(string)) => unit =
