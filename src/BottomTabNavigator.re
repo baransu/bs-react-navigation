@@ -14,7 +14,7 @@ let navigatorConfig = (~initialRouteName=?, ~initialParams, ()) =>
 let navigationOptions = BottomTabNavigationOptions.toJs;
 
 type route('screenProps, 'params) =
-  Route.t('screenProps, 'params, BottomTabNavigationOptions.t);
+  TabRoute.t('screenProps, 'params, BottomTabNavigationOptions.t);
 
 type routes('screenProps, 'params) =
   list((string, route('screenProps, 'params)));

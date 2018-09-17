@@ -9,7 +9,6 @@ type t = {
   /* TODO: tabBarButtonComponent which accepts onPress event */
   tabBarAccessibilityLabel: Js.Undefined.t(string),
   tabBarTestID: Js.Undefined.t(string),
-  /* TODO: tabBarOnPress */
 };
 
 let toJs =

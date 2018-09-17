@@ -16,7 +16,7 @@ let navigatorConfig = (~initialRouteName=?, ~initialParams, ()) =>
 let navigationOptions = StackNavigationOptions.toJs;
 
 type route('screenProps, 'params) =
-  Route.t('screenProps, 'params, StackNavigationOptions.t);
+  StackRoute.t('screenProps, 'params, StackNavigationOptions.t);
 
 type routes('screenProps, 'params) =
   list((string, route('screenProps, 'params)));

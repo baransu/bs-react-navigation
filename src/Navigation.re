@@ -9,7 +9,7 @@ type stateJs('params) = {
 
 type t('params) = {. "state": stateJs('params)};
 
-type state('params) = {
+type stackState('params) = {
   routeName: string,
   key: string,
   params: 'params,
@@ -17,7 +17,7 @@ type state('params) = {
   index: option(int),
 };
 
-let state = (t: t('params)) => {
+let stackState = (t: t('params)) => {
   let js = t##state;
   let key = js##key;
   let routeName = js##routeName;

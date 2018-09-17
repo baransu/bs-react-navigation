@@ -7,7 +7,7 @@ module Config = {
   let routes: routes(screenProps, params) = [
     (
       Routes.toString(`First),
-      Route.route(
+      StackRoute.route(
         ~screen=(~navigation, ~params) => <First navigation params />,
         ~navigationOptions=navigationOptions(~title="First", ()),
         (),
@@ -15,7 +15,7 @@ module Config = {
     ),
     (
       Routes.toString(`Second),
-      Route.route(
+      StackRoute.route(
         ~screen=(~navigation, ~params) => <Second navigation params />,
         ~navigationOptions=navigationOptions(~title="Second", ()),
         (),
