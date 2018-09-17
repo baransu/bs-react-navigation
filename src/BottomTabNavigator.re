@@ -2,13 +2,13 @@
 type navigatorConfigT('params) = {
   /* TODO: add rest of BottomTabNavigatorConfig */
   initialRouteName: Js.Undefined.t(string),
-  initialRouteParams: 'params,
+  initialRouteParams: {. "params": 'params},
 };
 
-let navigatorConfig = (~initialRouteName=?, ~initialRouteParams, ()) =>
+let navigatorConfig = (~initialRouteName=?, ~initialParams, ()) =>
   navigatorConfigT(
     ~initialRouteName=Js.Undefined.fromOption(initialRouteName),
-    ~initialRouteParams,
+    ~initialRouteParams={"params": initialParams},
   );
 
 let navigationOptions = BottomTabNavigationOptions.toJs;
