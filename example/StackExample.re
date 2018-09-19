@@ -8,7 +8,9 @@ module Config = {
     (
       Routes.toString(`First),
       StackRoute.route(
-        ~screen=(~navigation, ~params) => <First navigation params />,
+        ~screen=
+          (~navigation, ~params, ~screenProps as _) =>
+            <First navigation params />,
         ~navigationOptions=navigationOptions(~title="First", ()),
         (),
       ),
@@ -16,7 +18,9 @@ module Config = {
     (
       Routes.toString(`Second),
       StackRoute.route(
-        ~screen=(~navigation, ~params) => <Second navigation params />,
+        ~screen=
+          (~navigation, ~params, ~screenProps as _) =>
+            <Second navigation params />,
         ~navigationOptions=navigationOptions(~title="Second", ()),
         (),
       ),
